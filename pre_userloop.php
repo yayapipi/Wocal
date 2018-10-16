@@ -22,7 +22,7 @@ if($result->num_rows >0){
 	while($row = $result->fetch_assoc()) {
 		$sql_create_table = "CREATE TABLE D";
 		$sql_create_table .= $row["student_id"];
-		$sql_create_table .=" (t_date date,t_work time,t_drop time);";
+		$sql_create_table .=" (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,t_date date,t_work time,t_drop time);";
 		if ($conn->query($sql_create_table) === TRUE) {
    			 echo "New record created successfully";
 		} else {
