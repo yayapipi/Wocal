@@ -19,7 +19,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
     	$result = $conn->query($sql);
     	if($result->num_rows >0){
 			while($row = $result->fetch_assoc()) {
-   			echo $row["student_id"];
+   			echo $row["name"];
 			if($row["state"]==0){
 				 $sql1 = "INSERT INTO d" .$row["student_id"] ." (t_date,t_work) VALUES(CURDATE(),CURTIME())";
 				 $conn->query($sql1);

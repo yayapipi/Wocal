@@ -16,7 +16,8 @@ if ($conn->connect_error) {
 } 
 
 $sql = "INSERT INTO UserData (student_id,card_id,name,img_url,state)
-VALUES ('404410069', 'ABCDEFG','yayapipi','./123.jpg',0)";
+VALUES ('404410069', '9591B537','吳子楊','./123.jpg',0)";
+
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
