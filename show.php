@@ -28,42 +28,90 @@
 <!--===============================================================================================-->
 </head>
 <body>
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "Wocal";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+    	die("Connection failed: " . $conn->connect_error);
+	} 
+
+$sql = "SELECT * FROM UserData";
+$result = $conn->query($sql);
+
+$name = array();
+
+if($result->num_rows >0){
+	$i = 0;
+	while($row = $result->fetch_assoc()) {
+		$name[$i] = $row["name"];
+		$student_id[$i] = $row["student_id"];
+		$status[$i] = $row["state"];
+		//echo $name[$i++];
+		$i++;
+	}
+}
+
+$conn->close();
+?>
+
+
 <form action="/record.php" method="post">
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100">
+			<div class="table-login800">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
-						Ride Wocal
+						User Display Log
 					</span>
 					<span class="login100-form-title p-b-48">
-						<i class="zmdi zmdi-font"></i>
+						
 						<!--<img src="./img/1.jpg" width="100px" height="100px"></img>-->
 					</span>
 
+					<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Student ID</th>
+        <th>Current State</th>
+      </tr>
+    </thead>
+    <tbody>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						
-						<input class="input100" type="password" name="card_id" autofocus>
-						<span class="focus-input100" data-placeholder="Scan Your Card"></span>
-					</div>
-					<button  type="submit" ></button>
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							
-							<button class="login100-form-btn" type="submit" disabled>
-								Scan Your Card
-							</button>
-						</div>
-					</div>
+    	<?php 
+    		$j=0;
+    		while($j<$i){
+    			echo"<tr><td><button href='display.php'>";
+        		echo $name[$j];
+        		echo "</button></td>";
+        		echo "<td>";
+        		echo $student_id[$j];
+        		echo "</td>";
+        		echo "<td>";
+        		if($status[$j]==0){
+        			echo "<p style='color:red'>";
+        			echo "Not Working";
+        			echo "</p>";
+        		}else{
+        			echo "<p style='color:green'>";
+        			echo "Working";
+        			echo "</p>";
+        		}
+        		echo "</td></tr>";
+       			$j++;	
+    		}
 
-					<div class="text-center p-t-115">
-						
-						<a class="txt2" href="./display.php">
-							Display Log
-						</a>
-					</div>
+    	?>
+    </tbody>
+  </table>
+
+					
 				</form>
 			</div>
 		</div>
