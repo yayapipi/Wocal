@@ -40,8 +40,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 				 echo "Bye Sucess";
 			 }
 			 
+			 
 		}
-	}
+		
+		
+		}else{
+			echo "Not Found";
+		}
+	
+	header( "refresh:1.5;url=index.php" );
 }
 
 

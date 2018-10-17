@@ -42,5 +42,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 $conn->close();
 ?>
+
+<h1>Display</h1>
+<form action="/display.php" method="post">
+  <input type="text" name="card_id" autofocus><br>
+  <input type="submit">
+</form>
+
 </body>
 </html>

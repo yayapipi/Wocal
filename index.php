@@ -33,7 +33,7 @@ $conn->close();
 ?>
 
 <form action="/record.php" method="post">
-  <input type="text" name="card_id" autofocus><br>
+  <input type="password" name="card_id" autofocus><br>
   <input type="submit">
 </form>
 
