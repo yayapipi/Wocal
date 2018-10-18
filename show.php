@@ -41,34 +41,57 @@ $conn = new mysqli($servername, $username, $password, $dbname);
     	die("Connection failed: " . $conn->connect_error);
 	} 
 
-$sql = "SELECT * FROM UserData";
-$result = $conn->query($sql);
 
-$name = array();
 
+if(isset($_GET['student_id'])){
+
+	$sql = "SELECT * FROM d" .$_GET['student_id'];
+	$result = $conn->query($sql);
+	if($result){
 if($result->num_rows >0){
 	$i = 0;
 	while($row = $result->fetch_assoc()) {
-		$name[$i] = $row["name"];
-		$student_id[$i] = $row["student_id"];
-		$status[$i] = $row["state"];
-		//echo $name[$i++];
+		$t_date[$i] = $row["t_date"];
+		$t_work[$i] = $row["t_work"];
+		$t_drop[$i] = $row["t_drop"];
 		$i++;
 	}
+}else{
+	$i =0;
+}
+}else{
+	$i=-1;
+}
+}else{
+	$i =0;
 }
 
 $conn->close();
 ?>
 
 
-<form action="/record.php" method="post">
+<form action="/display.php" method="post">
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="table-login800">
+				
+				
 				<form class="login100-form validate-form">
+
 					<span class="login100-form-title p-b-26">
-						User Display Log
+
+						 Time Log Of 
+						<?php 
+							if(isset($_GET['student_id'])){
+								echo $_GET['student_id'];
+							}
+							if($i<0){
+								echo " Is Not Found! :(";
+							}
+						?>
+						 
 					</span>
+					<button type="submit" class=" btn-default" style="display: block; margin: 0 auto;">Display Log</button>
 					<span class="login100-form-title p-b-48">
 						
 						<!--<img src="./img/1.jpg" width="100px" height="100px"></img>-->
@@ -77,9 +100,9 @@ $conn->close();
 					<table class="table table-hover">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Student ID</th>
-        <th>Current State</th>
+        <th>Date</th>
+        <th>Work Time</th>
+        <th>Drop Time</th>
       </tr>
     </thead>
     <tbody>
@@ -87,22 +110,14 @@ $conn->close();
     	<?php 
     		$j=0;
     		while($j<$i){
-    			echo"<tr><td><button href='display.php'>";
-        		echo $name[$j];
-        		echo "</button></td>";
-        		echo "<td>";
-        		echo $student_id[$j];
+    			echo"<tr><td>";
+        		echo $t_date[$j];
         		echo "</td>";
         		echo "<td>";
-        		if($status[$j]==0){
-        			echo "<p style='color:red'>";
-        			echo "Not Working";
-        			echo "</p>";
-        		}else{
-        			echo "<p style='color:green'>";
-        			echo "Working";
-        			echo "</p>";
-        		}
+        		echo $t_work[$j];
+        		echo "</td>";
+        		echo "<td>";
+        		echo $t_drop[$j];
         		echo "</td></tr>";
        			$j++;	
     		}

@@ -48,7 +48,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 			echo "Not Found";
 		}
 	
-	header( "refresh:1.5;url=index.php" );
+	header( "refresh:1.25;url=index.php" );
 }
 
 

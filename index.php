@@ -28,7 +28,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-<form action="/record.php" method="post">
+<form action="/checkin.php" method="post">
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -44,7 +44,7 @@
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						
-						<input class="input100" type="password" name="card_id" autofocus>
+						<input class="input100"  name="card_id" autofocus>
 						<span class="focus-input100" data-placeholder="Scan Your Card"></span>
 					</div>
 					<button  type="submit" ></button>
@@ -60,11 +60,15 @@
 
 					<div class="text-center p-t-115">
 						
-						<a class="txt2" href="./display.php">
+						<a class="txt2" href="./display.php" target="_blank">
 							Display Log
 						</a>
 					</div>
+
+
 				</form>
+
+
 			</div>
 		</div>
 	</div>

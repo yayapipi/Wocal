@@ -61,7 +61,7 @@ $conn->close();
 ?>
 
 
-<form action="/record.php" method="post">
+<form action="/index.php" method="post">
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="table-login800">
@@ -69,11 +69,12 @@ $conn->close();
 					<span class="login100-form-title p-b-26">
 						User Display Log
 					</span>
+					<!--<button type="submit" class=" btn btn-success" style="display: block; margin: 0 auto;">Home</button>-->
 					<span class="login100-form-title p-b-48">
 						
 						<!--<img src="./img/1.jpg" width="100px" height="100px"></img>-->
 					</span>
-
+</form>
 					<table class="table table-hover">
     <thead>
       <tr>
@@ -83,13 +84,25 @@ $conn->close();
       </tr>
     </thead>
     <tbody>
-
     	<?php 
     		$j=0;
+    		//Fix First Person Form Bug
+    			echo "<form action='/show.php' method='GET'>";
+    			echo "<input type='hidden' name='student_id' value='";
+    			echo $student_id[$j];
+    			echo "' />";
+    			echo "<input type='hidden' name='page' value=1 />";
+        		echo "</form>";	
     		while($j<$i){
-    			echo"<tr><td><button href='display.php'>";
+    			echo "<form action='/show.php' method='GET'>";
+    			echo"<tr><td><button type='submit' class='btn-link'>";
+    			echo "<input type='hidden' name='student_id' value='";
+    			echo $student_id[$j];
+    			echo "' />";
+    			echo "<input type='hidden' name='page' value=1 /><b>";
         		echo $name[$j];
         		echo "</button></td>";
+        		echo "</form>";
         		echo "<td>";
         		echo $student_id[$j];
         		echo "</td>";
@@ -117,7 +130,7 @@ $conn->close();
 		</div>
 	</div>
 	
-</form>
+
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
