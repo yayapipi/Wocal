@@ -6,10 +6,10 @@ https://yayapipi.com/portfolio/wocal-%E6%89%93%E5%8D%A1%E7%B3%BB%E7%BB%9F/
 
 # 界面截图
 
-![Image1](https://yayapipi.com/wp-content/uploads/2018/10/wocal1.png)
+![Image1](https://yayapipi.com/wp-content/uploads/2018/10/wocal1-495x534.png)
 
-![Image2](https://yayapipi.com/wp-content/uploads/2018/10/wocal2.png)
+![Image2](https://yayapipi.com/wp-content/uploads/2018/10/wocal2-495x534.png)
 
-![Image3](https://yayapipi.com/wp-content/uploads/2018/10/wocal3.png)
+![Image3](https://yayapipi.com/wp-content/uploads/2018/10/wocal3-1024x804.png)
 
-![Image4](https://yayapipi.com/wp-content/uploads/2018/10/wocal4.png)
+![Image4](https://yayapipi.com/wp-content/uploads/2018/10/wocal4-1024x804.png)
