@@ -5,3 +5,5 @@ Wocal打卡系统是有一天我在学校的新创电动车运营团队的时候
 https://yayapipi.com/portfolio/wocal-%E6%89%93%E5%8D%A1%E7%B3%BB%E7%BB%9F/
 
 # 界面截图
+
+![Image1](https://yayapipi.com/wp-content/uploads/2018/10/wocal1-495x534.png)
